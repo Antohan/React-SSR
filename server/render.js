@@ -9,8 +9,8 @@
 import * as React from "react";
 // import {renderToString} from 'react-dom/server';
 import { renderToPipeableStream } from "react-dom/server";
-import App from "../src/App";
-import { DataProvider } from "../src/data";
+import App from "../src/components/App";
+import { DataProvider } from "../src/context/data";
 import { API_DELAY, ABORT_DELAY } from "./delays";
 
 // In a real setup, you'd read it from webpack build stats.
