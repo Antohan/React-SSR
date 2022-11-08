@@ -6,14 +6,15 @@
  *
  */
 
-import {Suspense} from 'react';
-import {ErrorBoundary} from 'react-error-boundary';
+import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+
 import Html from '../Html';
 import Spinner from '../Spinner';
-import Content from "../Content";
+import Content from '../Content';
 import Error from '../Error';
 
-export default function App({assets}) {
+export default function App({ assets }) {
   return (
     <Html assets={assets} title="Hello">
       <Suspense fallback={<Spinner />}>

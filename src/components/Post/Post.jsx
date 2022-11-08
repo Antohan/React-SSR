@@ -16,7 +16,7 @@ export default function Post() {
         slowed down.
       </p>
       <p>
-        Notice how HTML for comments "streams in" before the JS (or React) has
+        Notice how HTML for comments &quot;streams in&quot; before the JS (or React) has
         loaded on the page.
       </p>
       <p>

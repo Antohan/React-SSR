@@ -6,17 +6,18 @@
  *
  */
 
-import * as React from "react";
+import * as React from 'react';
 // import {renderToString} from 'react-dom/server';
-import { renderToPipeableStream } from "react-dom/server";
-import App from "../src/components/App";
-import { DataProvider } from "../src/context/data";
-import { API_DELAY, ABORT_DELAY } from "./delays";
+import { renderToPipeableStream } from 'react-dom/server';
+
+import App from '../src/components/App';
+import { DataProvider } from '../src/context/data';
+import { ABORT_DELAY, API_DELAY } from './delays';
 
 // In a real setup, you'd read it from webpack build stats.
 let assets = {
-  "main.js": "/main.js",
-  "main.css": "/main.css"
+  'main.js': '/main.js',
+  'main.css': '/main.css'
 };
 
 module.exports = function render(url, res) {
@@ -32,8 +33,8 @@ module.exports = function render(url, res) {
   // );
 
   // The new wiring is a bit more involved.
-  res.socket.on("error", (error) => {
-    console.error("Fatal", error);
+  res.socket.on('error', (error) => {
+    console.error('Fatal', error);
   });
   let didError = false;
   const data = createServerData();
@@ -42,11 +43,11 @@ module.exports = function render(url, res) {
       <App assets={assets} />
     </DataProvider>,
     {
-      bootstrapScripts: [assets["main.js"]],
+      bootstrapScripts: [assets['main.js']],
       onShellReady() {
         // If something errored before we started streaming, we set the error code appropriately.
         res.statusCode = didError ? 500 : 200;
-        res.setHeader("Content-type", "text/html");
+        res.setHeader('Content-type', 'text/html');
         stream.pipe(res);
       },
       onError(x) {
